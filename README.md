@@ -64,8 +64,9 @@ Where it started. Java, raw JDBC, no ORM — every query, every state transition
 
 <div align="center">
 
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=MrSgemaSeny&show_icons=true&theme=tokyonight&hide_border=true)
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=MrSgemaSeny&layout=compact&theme=tokyonight&hide_border=true)
+![Profile Views](https://komarev.com/ghpvc/?username=MrSgemaSeny&color=2E9EF7&style=for-the-badge&label=PROFILE+VIEWS)
+![Followers](https://img.shields.io/github/followers/MrSgemaSeny?style=for-the-badge&color=2E9EF7&label=FOLLOWERS)
+![Stars](https://img.shields.io/github/stars/MrSgemaSeny?style=for-the-badge&color=2E9EF7&label=TOTAL+STARS)
 
 </div>
 
