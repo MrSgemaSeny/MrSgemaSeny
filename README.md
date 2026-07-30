@@ -1,78 +1,106 @@
-<div align="center">
+# Мурат Орынбасар
 
-# Hi, I'm Murat 👋
-
-### Junior-Middle Fullstack Developer · Strong Middle in Java & React
-
-[![Typing SVG](https://readme-typing-svg.demolab.com/?font=Fira+Code&size=20&pause=1000&color=2E9EF7&center=true&vCenter=true&width=600&lines=Building+production+SaaS+with+Spring+Boot+%2B+React;Recovered+a+dead+prod+in+48+hours;Currently+shipping+JF-1C+(ZhanFinance))](https://git.io/typing-svg)
-
-</div>
-
-I build backend systems that hold up under real traffic and frontends that don't fall apart at scale. My flagship right now is **JF-1C** — a production SaaS CRM/accounting platform that real businesses use, not a tutorial project.
+**Full-Stack Engineer | Java (Spring Boot) & React (TypeScript)**
+Алматы / Шымкент, Казахстан · muratorynbasar0@gmail.com · [GitHub](https://github.com/MrSgemaSeny)
 
 ---
 
-## 🚀 Flagship: JF-1C (ZhanFinance)
+## О себе
 
-A full SaaS CRM + accounting platform for Kazakhstan businesses, live in production.
+Я full-stack разработчик, но развиваюсь в сторону тех-лида и инженера-архитектора: строю системы целиком, от решения "как это должно быть устроено" до последней строчки кода, а не закрываю тикеты по чужой спецификации. Начинал с того, что руками разбирал, как база данных работает под капотом, без единого фреймворка между мной и SQL — это было сознательное решение понять механику до того, как доверять её абстракциям.
 
-- **Backend:** Spring Boot, Spring Security (JWT in httpOnly cookies), row-level access control, WebSocket/STOMP for realtime, PDF document generation, Bucket4j rate limiting — ~15.7k lines
-- **Frontend:** React + TypeScript, Feature-Sliced Design, React Query, drag-and-drop Kanban — ~20.8k lines
-- **Infra:** Fly.io, managed Postgres, GitHub Actions CI/CD
-
-When a third-party AI agent with repo access wiped the production app and broke the build, I rebuilt the infrastructure and restored every critical flow — auth, task creation, document generation — in **2 days**, by hand, one commit per fix.
-
-## 🎬 testCinema — Diploma Project
-
-Three-service architecture, not a monolith: Spring Boot backend, React frontend, and a standalone Python/FastAPI service running an async task queue with webhook retries and batch reconciliation — powering AI-driven subtitle translation via OpenAI/Gemini.
-
-## 💼 CareerHub
-
-Job-platform frontend built on Feature-Sliced Design at real scale — 5 entities, 12+ features, three distinct role-based layouts (Admin / Company / Applicant).
-
-## ⚽ Telegram Bot (Football)
-
-Where it started. Java, raw JDBC, no ORM — every query, every state transition handled by hand. The project that taught me what frameworks actually save you from.
+Сейчас веду соло production-платформу для реального бизнеса в Казахстане: сам принимаю архитектурные решения — модель данных, ролевой доступ, границы между сервисами — и сам несу ответственность за то, что они выдержат рост системы, а не только текущую нагрузку. Каждый следующий проект в списке ниже — шаг в эту сторону: сначала разобрался, как работают транзакции и пулы соединений вручную, потом — как строить интерфейсы и распределённые пайплайны, и только после этого взялся за полноценный боевой SaaS-продукт, где я отвечаю за архитектуру от базы данных до продакшена, а не только за код внутри неё.
 
 ---
 
-## 🛠 Tech Stack
+## Путь
 
-**Backend**
+### 1. Telegram Bot (Football) — с этого всё началось
+*Статус: первый рабочий проект, боевой бот*
+*Стек: Core Java, Raw JDBC, PostgreSQL*
 
-![Java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
-![Redis](https://img.shields.io/badge/Redis-DC382D?style=for-the-badge&logo=redis&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+Написал рабочего Telegram-бота на футбольную тематику полностью на чистой Java, без единого фреймворка поверх базы данных. Никакого Hibernate, никакого Spring Data — только JDBC напрямую.
 
-**Frontend**
+**Что понял на этом проекте:**
+- Как на самом деле устроены транзакции и что происходит, когда их не закрываешь вовремя.
+- Цену connection pool'а — что это не абстракция "из коробки", а конкретный ресурс, который можно исчерпать.
+- Почему ORM-фреймворки вообще появились: пока не написал SQL-маппинг руками, не понимал, от какой боли меня избавляет Hibernate.
 
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
-![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![TailwindCSS](https://img.shields.io/badge/Tailwind-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
+### 2. CareerHub — платформа вакансий
+*Статус: незаконченный пет-проект*
+*Стек: JavaScript, React*
 
-**Infra & Tools**
+Разрабатывал фронтенд платформы поиска работы на архитектуре Feature-Sliced Design — заметно больше, чем просто три интерфейса под роли. Отдельными модулями реализованы: авторизация, профиль пользователя, поиск и матчинг кандидатов, прохождение тестов и верификация навыков (skill verification), отклик на вакансии и управление откликами, управление вакансиями со стороны работодателя, аналитика для компаний и уведомления. Проект не был доведён до продакшена — это был полигон для отработки архитектуры фронтенда на реалистичном по числу фич масштабе, а не готовый продукт.
 
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![Fly.io](https://img.shields.io/badge/Fly.io-8B5CF6?style=for-the-badge&logo=flydotio&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
+**Что понял на этом проекте:**
+- Как структурировать React-приложение так, чтобы больше десятка отдельных фич (от тестирования кандидатов до аналитики компании) не превращались в свалку общих компонентов.
+- Организацию JS-проекта на масштабе, где просто "папка components" уже не работает.
+
+### 3. testCinema — онлайн-кинoплатформа для казахстанского контента
+*Статус: дипломный проект, команда из 2 человек — первый настоящий боевой опыт, разработка длилась 10 месяцев*
+*Стек: React, TypeScript (frontend), Python (FastAPI) + Spring Boot (backend), Docker, модульный монолит с внешними сервисами*
+
+Это не просто сервис перевода субтитров — полноценная онлайн-кинoплатформа с фронтендом и бэкендом, где можно смотреть фильмы. Научная задача проекта была шире, чем просто стриминг: развитие казахстанской киноиндустрии — локализация перевода контента и построение отказоустойчивой системы регистрации пользователей. Рекомендательная система заточена в первую очередь под локальный, казахский контент, а не под общий каталог — в этом и был смысл исследования, а не в том, чтобы повторить общий подход крупных стриминговых платформ.
+
+Архитектурно бэкенд собран как модульный монолит, взаимодействующий с внешними сервисами (в том числе отдельным Python/FastAPI-сервисом для ML-рекомендаций и перевода), упакован в Docker. Это был мой первый опыт, когда систему нужно было держать живой не один спринт, а десять месяцев подряд — с реальными пользователями, а не в режиме демо для защиты.
+
+**Что сделано:**
+- Фронтенд на React отвечал за просмотр контента и весь пользовательский путь.
+- Основная зона ответственности — фронтенд и ML-часть (рекомендательная система под локальный контент), дополнительно участвовал в бэкенд-интеграции и настройке сервиса перевода субтитров.
+- Работал с Docker и модульной архитектурой монолита, взаимодействующего с внешними сервисами, а не с классическим единым бэкендом.
+
+**Что понял на этом проекте:**
+- Как несколько сервисов на разных языках (Java, Python) договариваются между собой через API, а не варятся в одном монолите.
+- Первый реальный опыт встраивания ML-компонента в рабочий продукт, а не в ноутбук с экспериментами.
+- Что значит держать проект живым 10 месяцев, а не сдать один раз и забыть — первый настоящий боевой опыт до JF-1C.
+
+### 4. ZhanFinance (JF-1C) — B2B SaaS CRM и бухгалтерская платформа
+*Статус: основной боевой проект, соло-разработка, ~37 500 строк кода*
+*Стек: Java 17, Spring Boot 3, Spring Security 6, PostgreSQL 17, Flyway, React 19, TypeScript, Feature-Sliced Design, React Query, WebSockets (STOMP), Tailwind CSS v4*
+
+Это тот проект, где все предыдущие уроки сошлись в одну систему. Спроектировал и написал полную кодовую базу — от схемы базы данных до продакшен-деплоя — для реальной бухгалтерской компании в Казахстане. Здесь уже не пет-проект и не диплом: настоящие клиенты, настоящие деньги в счетах, настоящая ответственность за то, что система не упадёт и не потеряет данные.
+
+**Что сделано:**
+- Спроектировал и написал полную кодовую базу системы под требования реального бизнеса — от структуры базы данных до деплоя.
+- Ролевая авторизация на 5 ролей (ADMIN, EMPLOYEE, CLIENT, LEARNER, CURATOR) с контролем доступа на уровне строк (Row-Level Security) — защита от IDOR не на бумаге, а в каждом запросе к данным.
+- Чат в реальном времени на WebSocket/STOMP с проверкой прав прямо на уровне подписки на канал.
+- Генерация актов и счетов в PDF с поддержкой кириллицы (OpenHTMLtoPDF + Thymeleaf) — это оказалось отдельным техническим квестом самим по себе.
+- История схемы базы данных как неизменяемая цепочка миграций Flyway (V1–V108), а не "накатили как получилось".
+- CI/CD в GitHub Actions: автотесты, деплой бэкенда на Fly.io, деплой фронтенда на GitHub Pages, автоматические бэкапы базы данных с уведомлением в Telegram.
+
+**Что понял на этом проекте:**
+- Разница между "код работает у меня" и "код работает в проде под реальной нагрузкой с реальными людьми" — огромная, и это не про мастерство, а про дисциплину: миграции, тесты, откат по кнопке, а не по памяти.
+- Security — это не фича, которую добавляют в конце, а решение, которое принимается на уровне архитектуры с первого дня.
+- Соло-разработка полноценного продукта учит держать в голове систему целиком — от SQL-индекса до того, как это выглядит для бухгалтера, который просто хочет сформировать акт за пять секунд.
 
 ---
 
-<div align="center">
+## Инженерные и архитектурные качества
 
-![Profile Views](https://komarev.com/ghpvc/?username=MrSgemaSeny&color=2E9EF7&style=for-the-badge&label=PROFILE+VIEWS)
-![Followers](https://img.shields.io/github/followers/MrSgemaSeny?style=for-the-badge&color=2E9EF7&label=FOLLOWERS)
-![Stars](https://img.shields.io/github/stars/MrSgemaSeny?style=for-the-badge&color=2E9EF7&label=TOTAL+STARS)
+Это не список прилагательных "внимательный, ответственный, коммуникабельный" — каждый пункт ниже привязан к конкретному решению, которое я реально принимал.
 
-</div>
+**Не пишу код, пока не закрыт архитектурный вопрос.** Когда вводил новую роль ADVISOR в JF-1C, сначала разбирался, где текущая логика назначения задач и клиентов создаёт побочные эффекты (например, назначение задачи сотруднику молча закрепляло за ним и клиента) — и только после того, как продумал новую модель владения целиком, переходил к реализации. Код, написанный до того, как продумана модель данных, потом приходится переписывать дважды.
+
+**Считаю security частью архитектуры, а не финальным патчем.** Ролевой доступ на уровне строк, отзыв всех refresh-токенов при смене пароля, маскирование чувствительных полей в логах аудита — это решения, заложенные в структуру системы с начала, а не заплатки после пентеста.
+
+**Продумываю каскадные эффекты решений, а не только happy path.** При проектировании модели "клиент → сотрудник → задачи" разбирал не только основной сценарий, но и пограничный случай: что происходит с задачей, если сотрудник уже назначен, а клиент за ним ещё не закреплён, и как один каскад не должен молча ломать другой существующий рабочий процесс.
+
+**Провёл платформу через полное восстановление после серьёзного инфраструктурного инцидента** — с потерей продакшн-окружения и CI/CD — без потери данных, разобрав причину на уровне корня, а не откатив наугад.
+
+**Держу дисциплину миграций.** Схема базы данных меняется только через версионированные Flyway-миграции — никакого `ddl-auto=update` в проде, никакого "поправил колонку руками на сервере".
+
+**Разделяю права по принципу минимально необходимого доступа**, а не "дать роли побольше, чтобы не разбираться". Каждая новая роль в системе получает ровно тот набор прав, который ей нужен для её задач — не больше, даже если было бы проще один раз выдать доступ ко всему.
 
 ---
 
-## 📫 Reach me
+## Стек технологий
 
-- **Email:** muratorynbasar0@gmail.com
-- **Location:** Almaty / Shymkent, Kazakhstan
+**Backend:** Java 17, Spring Boot 3, Spring Security, Spring Data JPA, REST API, PostgreSQL, Flyway, Caffeine Cache, Bucket4j
+**Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, WebSockets (STOMP), HTML/CSS, Tailwind CSS
+**Другое:** Python, FastAPI, Docker, Git, GitHub Actions, JUnit 5
+
+---
+
+## Как я работаю
+
+Мне важна детерминированность — база данных должна меняться только через миграции, а не через "накатили руками и забыли". Мне важна ролевая безопасность на уровне архитектуры, а не патчей поверх дыр. И мне важно доводить проект до реального использования живыми людьми, а не оставлять его демкой в портфолио.
