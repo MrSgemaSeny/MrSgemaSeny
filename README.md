@@ -73,11 +73,10 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 *Статус: основной боевой проект, соло-разработка, ~50 000+ строк кода (более 75 000 добавлений за 1.5 месяца)* *Стек: Java 17, Spring Boot 3, Spring Security 6, PostgreSQL 17, Flyway, React 19, TypeScript, Feature-Sliced Design, React Query, WebSockets (STOMP), Tailwind CSS v4*
 
-Это тот проект, где все предыдущие уроки сошлись в одну систему. Спроектировал и написал полную кодовую базу — от схемы базы данных до продакшен-деплоя — для реальной бухгалтерской компании в Казахстане. Здесь уже не пет-проект и не диплом: настоящие клиенты, настоящие деньги в счетах, настоящая ответственность за то, что система не упадёт и не потеряет данные.
+Это тот проект, где все предыдущие уроки сошлись в одну систему. Разработал SaaS-платформу для реальной бухгалтерской компании в Казахстане. Здесь уже не пет-проект и не диплом: настоящие клиенты, настоящие деньги в счетах и строгие требования к отказоустойчивости.
 
 **Что сделано:**
-
-- Спроектировал и написал полную кодовую базу системы под требования реального бизнеса — от структуры базы данных до деплоя.
+- Спроектировал архитектуру и написал кодовую базу с нуля под бизнес-процессы заказчика.
 - Ролевая авторизация на 6 ролей (ADMIN, EMPLOYEE, CLIENT, LEARNER, CURATOR, ADVISOR) с контролем доступа на уровне строк (Row-Level Security) — защита от IDOR не на бумаге, а в каждом запросе к данным.
 - Чат в реальном времени на WebSocket/STOMP с проверкой прав прямо на уровне подписки на канал.
 - Генерация актов и счетов в PDF с поддержкой кириллицы (OpenHTMLtoPDF + Thymeleaf) — это оказалось отдельным техническим квестом самим по себе.
@@ -155,9 +154,9 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 *Статус: активно пополняется (живой репозиторий)* *Стек: Markdown, Zettelkasten, архитектурный лог*
 
-Мой [архитектурный репозиторий](https://github.com/MrSgemaSeny/Second-Brain), построенный по методологии Zettelkasten. Это не конспекты, а Single Source of Truth для принятия технических решений.
+Мой [архитектурный репозиторий](https://github.com/MrSgemaSeny/Second-Brain). Это не просто база знаний или конспекты, а **исполняемый протокол работы с AI** (`context → работа → journal → push`) и Single Source of Truth для принятия технических решений.
 
-Каждый раз, когда я сталкиваюсь со сложной инженерной задачей (например, как избежать OutOfMemoryError при рендеринге PDF, или как обойти Safari ITP при WebSocket авторизации), я структурирую этот опыт здесь.
+Каждый раз, когда я сталкиваюсь со сложной инженерной задачей (например, как избежать OutOfMemoryError при рендеринге PDF, или как обойти Safari ITP при WebSocket авторизации), я структурирую этот опыт здесь, превращая его в воспроизводимый контекст для AI-ассистентов.
 
 **Что внутри:**
 
@@ -195,7 +194,9 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ## Стек технологий
 
-**Backend:** Java 17, Spring Boot 3, Spring Security, Spring Data JPA, REST API, PostgreSQL, Flyway, Caffeine Cache, Bucket4j **Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, WebSockets (STOMP), HTML/CSS, Tailwind CSS **Другое:** Python, FastAPI, Docker, Git, GitHub Actions, JUnit 5
+**Backend:** Java 17, Spring Boot 3, Spring Security, Spring Data JPA, REST API, PostgreSQL, Flyway, Caffeine Cache, Bucket4j, Redis, Spring Cloud Gateway
+**Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, Zustand, dnd-kit, Server-Sent Events (SSE), WebSockets (STOMP), HTML/CSS, Tailwind CSS v4
+**Другое:** Python, FastAPI, Docker, Git, GitHub Actions, JUnit 5, Groq API (LLM)
 
 ---
 
