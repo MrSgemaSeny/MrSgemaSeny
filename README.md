@@ -90,27 +90,23 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Соло-разработка полноценного продукта учит держать в голове систему целиком — от SQL-индекса до того, как это выглядит для бухгалтера, который просто хочет сформировать акт за пять секунд.
 
 ### 5. MeDev (DevProfile) — Платформа для разработчиков (Single Source of Truth)
+*Статус: Production-Ready MVP (Frontend + Backend, OAuth2, AI Groq Llama 3.3 70B, 6 HTML/PDF шаблонов, Job Tracker CRM + Kanban, 100% Test Coverage: 91 backend + 37 frontend tests)*
+*Стек: React 19, TypeScript, Tailwind CSS v4, Feature-Sliced Design, Zustand, React Query, Java 17, Spring Boot 3.3, PostgreSQL 15 (pgvector), Flyway (V23), Redis 7, OAuth2 (GitHub/Google), Groq AI (SSE Streaming), Thymeleaf + Flying Saucer (PDF), Vitest, Testcontainers*
 
-*Статус: MVP завершен (Frontend + Backend, OAuth2, AI Groq SSE, Drag-and-Drop, Stripe)* *Стек: React, TypeScript (dnd-kit, Zustand), Java 17 (Spring Boot 3), PostgreSQL, Flyway, OAuth2, AI Groq (LLM, SSE), Thymeleaf + Flying Saucer (PDF)*
+Полноценная data-first AI SaaS платформа, устраняющая фрагментацию карьерных данных разработчика между кодовой базой, PDF-резюме, GitHub и LinkedIn. Платформа агрегирует данные через GitHub API (Source of Truth), выполняет интеллектуальный парсинг старых PDF-резюме со Smart Merge (защита от галлюцинаций и потери данных) и генерирует на выходе 6 кастомизируемых дизайн-шаблонов резюме (включая строгий рекрутерский Clean ATS, Bento Grok, Apple Modern), интерактивное публичное веб-портфолио (`/:username`) с SEO-разметкой Schema.org, а также трекер вакансий (Job Tracker CRM) со скрапером HH/LinkedIn и AI-матчингом.
 
-Полноценный SaaS-продукт, решающий проблему фрагментации данных разработчика между резюме, GitHub и LinkedIn. Платформа агрегирует информацию из разных источников, использует искусственный интеллект для парсинга неструктурированных старых PDF-резюме и генерирует на выходе как интерактивное веб-портфолио, так и отполированный PDF-файл.
-
-Архитектура бэкенда спроектирована как модульный монолит (Modular Monolith), полностью stateless с авторизацией через JWT и хранением сессионной информации в Redis. Это закладывает базу для будущего разделения на микросервисы.
+Архитектура бэкенда спроектирована как модульный монолит (Modular Monolith) с полной изоляцией доменов (`auth`, `profile`, `github`, `ai`, `resume`, `tracker`, `billing`, `admin`, `audit`).
 
 **Что сделано:**
-
-- **AI-Интеграция в реальном времени:** Имплементирован стриминг ответов ИИ-ассистента через Server-Sent Events (SSE) с использованием Groq API, что дает моментальный отклик при генерации текста.
-- **Интеллектуальный парсинг резюме:** Извлечение сырого текста из PDF-файлов (Apache Tika/PDFBox) с ML-обработкой для приведения в строгую реляционную структуру базы данных.
-- **Визуальный редактор:** Сложный UI с Drag-and-Drop (`dnd-kit`), позволяющий кастомизировать блоки профиля без задержек.
-- **Генерация документов:** Серверный рендеринг PDF-документов через HTML/CSS шаблоны на основе Thymeleaf.
-- **Data-First подход:** Интеграция с GitHub OAuth2 для автоматической подгрузки репозиториев, коммитов и статистики.
-- **Инфраструктура биллинга:** Интеграция Stripe с механизмом `@Component PlanGuard` для управления доступом к Pro-фичам на уровне архитектуры.
+- **AI-Интеграция в реальном времени:** Стриминг ответов ИИ через Server-Sent Events (SSE) на базе Groq API (Llama 3.3 70B) с TTFB < 300ms, маскированием PII (`PiiMasker`) и защитой от инъекций.
+- **Двухдвижковый рендеринг резюме:** Мгновенный HTML live-preview в iframe с веб-шрифтами и серверный экспорт в печатный PDF (A4) через Thymeleaf + Flying Saucer с поддержкой кириллицы на 6 уникальных шаблонах (Clean ATS, GitHub, Grok Bento, Apple, Milky, PHub).
+- **Безопасность и криптография:** Аутентификация на короткоживущих JWT (15 мин) с отзывом сессий в Redis (`HttpOnly` cookies), защита токенов сторонних сервисов через шифрование AES-256 GCM с ротацией ключей, защита от IDOR на уровне Row-Level Security и защита от SSRF при скрапинге вакансий.
+- **Job Tracker CRM & Kanban:** Полноценный трекер откликов с двумя режимами отображения (CRM-таблица и Kanban-доска) и автоматическим парсингом вакансий по URL с распределенным Rate Limiting в Redis.
+- **Инженерная культура и тесты:** 100% покрытие ключевых узлов тестами — 91 тест бэкенда (JUnit 5, MockMvc, Testcontainers) и 37 тестов фронтенда (Vitest, Testing Library). Зафиксированы архитектурные решения в формате ADR (ADR-001..006).
 
 **Что понял на этом проекте:**
-
-- Как внедрять LLM в продакшн не просто как "чат-бот", а как пайплайн обработки сырых бизнес-данных (превращение текста в реляционную структуру).
-- Работу со стриминговыми протоколами (SSE) в Spring Boot для передачи ответов ИИ на лету, избегая HTTP-таймаутов.
-- Как балансировать сложность: выбор модульного монолита вместо микросервисов позволил выпустить сложный MVP в срок, сохранив чистые границы доменов.
+- Как внедрять LLM в production не как игрушку, а как детерминированный пайплайн структурирования данных со строгой валидацией JSON-схем, токен-аккаунтингом и graceful degradation.
+- Цену архитектурной дисциплины: чистые границы модулей, запрет на прямые кросс-доменные связки и строгая изоляция слоев по FSD на фронтенде позволили бесшовно расширять платформу без деградации кодовой базы.
 
 ### 6. Air Canvas — Computer Vision приложение (рисование жестами)
 
@@ -194,9 +190,9 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ## Стек технологий
 
-**Backend:** Java 17, Spring Boot 3, Spring Security, Spring Data JPA, REST API, PostgreSQL, Flyway, Caffeine Cache, Bucket4j, Redis, Spring Cloud Gateway
+**Backend:** Java 17, Spring Boot 3.3, Spring Security 6, Spring Data JPA, Python (FastAPI, Django), REST API, PostgreSQL, Flyway, Redis, Caffeine Cache, Groq AI (LLM / SSE), AES-256 GCM
 **Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, Zustand, dnd-kit, Server-Sent Events (SSE), WebSockets (STOMP), HTML/CSS, Tailwind CSS v4
-**Другое:** Python, FastAPI, Docker, Git, GitHub Actions, JUnit 5, Groq API (LLM)
+**Тестирование & DevOps:** Vitest, Testing Library, JUnit 5, Pytest, Mockito, Testcontainers, Docker, Git, GitHub Actions, Fly.io
 
 ---
 
