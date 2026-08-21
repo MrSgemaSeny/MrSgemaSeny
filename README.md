@@ -95,23 +95,28 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Соло-разработка полноценного продукта учит держать в голове систему целиком — от SQL-индексов, транзакций и JVM-памяти до FSD-слоев, мобильной адаптивности и UX бухгалтера, которому нужно сформировать акт за пару кликов.
 
 ### 5. MeDev (DevProfile) — Платформа для разработчиков (Single Source of Truth)
-*Статус: Production-Ready MVP (Frontend + Backend, OAuth2, AI Groq Llama 3.3 70B, 6 HTML/PDF шаблонов, Job Tracker CRM + Kanban, 100% Test Coverage: 91 backend + 37 frontend tests)*
-*Стек: React 19, TypeScript, Tailwind CSS v4, Feature-Sliced Design, Zustand, React Query, Java 17, Spring Boot 3.3, PostgreSQL 15 (pgvector), Flyway (V23), Redis 7, OAuth2 (GitHub/Google), Groq AI (SSE Streaming), Thymeleaf + Flying Saucer (PDF), Vitest, Testcontainers*
 
-Полноценная data-first AI SaaS платформа, устраняющая фрагментацию карьерных данных разработчика между кодовой базой, PDF-резюме, GitHub и LinkedIn. Платформа агрегирует данные через GitHub API (Source of Truth), выполняет интеллектуальный парсинг старых PDF-резюме со Smart Merge (защита от галлюцинаций и потери данных) и генерирует на выходе 6 кастомизируемых дизайн-шаблонов резюме (включая строгий рекрутерский Clean ATS, Bento Grok, Apple Modern), интерактивное публичное веб-портфолио (`/:username`) с SEO-разметкой Schema.org, а также трекер вакансий (Job Tracker CRM) со скрапером HH/LinkedIn и AI-матчингом.
+*Статус: Production-Ready v1.0 Release (Level 4: Frontend + Backend, OAuth2, AI Groq Llama 3.3 70B, 6 HTML/PDF тем с поддержкой кириллицы, Job Tracker CRM + Kanban, 100% Test Coverage: 253 backend + 37 frontend тестов, 0 warnings/errors, ADR-001..010)*
+*Стек: React 19, TypeScript, Tailwind CSS v4, Feature-Sliced Design, Zustand, React Query, Java 17, Spring Boot 3.3.0, PostgreSQL 15 (pgvector), Flyway (V24), Redis 7, OAuth2 (GitHub/Google), Groq AI (SSE Streaming), Thymeleaf + Flying Saucer + PDFBox (PDF), Vitest, Testcontainers, Docker Compose*
+
+Полноценная data-first AI SaaS платформа, устраняющая фрагментацию карьерных данных разработчика между кодовой базой, PDF-резюме, GitHub и LinkedIn. Платформа агрегирует данные через GitHub API (Source of Truth), выполняет интеллектуальный парсинг старых PDF-резюме со Smart Merge (защита от галлюцинаций и потери данных) и генерирует на выходе 6 кастомизируемых дизайн-шаблонов резюме (включая строгий рекрутерский Clean ATS, Bento Grok Monolith, Apple Modern, Milky Soft, PHub Orange, GitHub Dark), интерактивное публичное веб-портфолио (`/:username`) с SEO-разметкой Schema.org и OpenGraph, а также трекер вакансий (Job Tracker CRM) со скрапером HH/LinkedIn и AI-матчингом.
 
 Архитектура бэкенда спроектирована как модульный монолит (Modular Monolith) с полной изоляцией доменов (`auth`, `profile`, `github`, `ai`, `resume`, `tracker`, `billing`, `admin`, `audit`).
 
 **Что сделано:**
-- **AI-Интеграция в реальном времени:** Стриминг ответов ИИ через Server-Sent Events (SSE) на базе Groq API (Llama 3.3 70B) с TTFB < 300ms, маскированием PII (`PiiMasker`) и защитой от инъекций.
-- **Двухдвижковый рендеринг резюме:** Мгновенный HTML live-preview в iframe с веб-шрифтами и серверный экспорт в печатный PDF (A4) через Thymeleaf + Flying Saucer с поддержкой кириллицы на 6 уникальных шаблонах (Clean ATS, GitHub, Grok Bento, Apple, Milky, PHub).
-- **Безопасность и криптография:** Аутентификация на короткоживущих JWT (15 мин) с отзывом сессий в Redis (`HttpOnly` cookies), защита токенов сторонних сервисов через шифрование AES-256 GCM с ротацией ключей, защита от IDOR на уровне Row-Level Security и защита от SSRF при скрапинге вакансий.
-- **Job Tracker CRM & Kanban:** Полноценный трекер откликов с двумя режимами отображения (CRM-таблица и Kanban-доска) и автоматическим парсингом вакансий по URL с распределенным Rate Limiting в Redis.
-- **Инженерная культура и тесты:** 100% покрытие ключевых узлов тестами — 91 тест бэкенда (JUnit 5, MockMvc, Testcontainers) и 37 тестов фронтенда (Vitest, Testing Library). Зафиксированы архитектурные решения в формате ADR (ADR-001..006).
+
+- **AI-Интеграция и стриминг:** Потоковая генерация ответов через Server-Sent Events (SSE) на базе Groq API (Llama 3.3 70B) с реактивным освобождением ресурсов (`Disposable.dispose()`), TTFB < 300ms, токен-аккаунтингом (`AiUsageRepository`), маскированием PII (`PiiMasker`) с сохранением технического контекста и защитой от промпт-инъекций.
+- **Двухдвижковый рендеринг резюме:** Мгновенный HTML live-preview в iframe с веб-шрифтами и серверный экспорт в печатный PDF (A4) через Thymeleaf + Flying Saucer + PDFBox с устранением утечек дескрипторов (try-with-resources) и встроенными кириллическими шрифтами Roboto на 6 темах оформления.
+- **Криптография и безопасность:** Унифицированное шифрование персональных данных и внешних токенов по стандарту AES-256-GCM с ротацией ключей, аутентификация на короткоживущих JWT с отзывом сессий в Redis (`HttpOnly` cookies), защита от IDOR на уровне Row-Level Security и защита от SSRF при скрапинге вакансий.
+- **Конкурентность и транзакции:** Защита от race conditions при параллельных мутациях профиля через пессимистические блокировки (`PESSIMISTIC_WRITE`), идемпотентная обработка платежных вебхуков (Stripe / Kaspi Pay) через распределенные Redis-локи и constant-time HMAC-SHA256 верификацию подписей.
+- **Job Tracker CRM & Kanban:** Двухрежимный трекер откликов (CRM-таблица и drag-and-drop Kanban-доска) с парсингом вакансий по URL, AI-оценкой релевантности профиля и распределенным Rate Limiting в Redis (Bucket4j).
+- **Инженерная культура и качество:** 253 бэкенд-теста (JUnit 5, MockMvc, Testcontainers) и 37 фронтенд-тестов (Vitest, Testing Library), 0 ошибок линтинга (`oxlint`, `tsc`), 24 неизменяемые Flyway-миграции, 10 зафиксированных архитектурных решений (ADR-001..010) и полный комплект документации (`ARCHITECTURE.md`, `SECURITY_AUDIT.md`, `RUNBOOK.md`).
 
 **Что понял на этом проекте:**
-- Как внедрять LLM в production не как игрушку, а как детерминированный пайплайн структурирования данных со строгой валидацией JSON-схем, токен-аккаунтингом и graceful degradation.
-- Цену архитектурной дисциплины: чистые границы модулей, запрет на прямые кросс-доменные связки и строгая изоляция слоев по FSD на фронтенде позволили бесшовно расширять платформу без деградации кодовой базы.
+
+- Как внедрять LLM в production не как игрушку, а как детерминированный пайплайн структурирования данных со строгой валидацией JSON-схем, токен-аккаунтингом, graceful degradation и реактивным управлением соединениями.
+- Важность глубокой защиты данных (Defense-in-Depth): шифрование на уровне базы данных (AES-256-GCM), пессимистическая синхронизация транзакций и сквозной асинхронный аудит действий администраторов и пользователей делают систему устойчивой к атакам и сбоям в concurrency-сценариях.
+- Цену архитектурной дисциплины: строгие границы модулей на бэкенде и изоляция слоев по FSD на фронтенде позволяют масштабировать проект до production-ready релиза без роста энтропии и технического долга.
 
 ### 6. Air Canvas — Computer Vision приложение (рисование жестами)
 
