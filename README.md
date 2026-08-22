@@ -71,10 +71,10 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 4. ZhanFinance (JF-1C) — B2B SaaS CRM и бухгалтерская платформа
 
-*Статус: Production Release v1.0.0 (Level 4 — боевой деплой, соло-разработка, 545 коммитов за 33 рабочих дня, закрыты все 28 пунктов pre-release аудита)*  
+*Статус: Production v1.0 (Соло-разработка, 545 коммитов за 33 рабочих дня, закрыты все 28 пунктов pre-release аудита)*  
 *Стек: Java 17, Spring Boot 3.4+, Spring Security 6, PostgreSQL 17, Flyway (V1–V120), React 19, TypeScript, Feature-Sliced Design, React Query, WebSockets (STOMP), Tailwind CSS v4, Caffeine Cache, Bucket4j, OpenHTMLtoPDF, Thymeleaf*
 
-SaaS-платформа для реальной бухгалтерской компании в Казахстане: боевые клиенты, коммерческие транзакции в счетах и строгие требования к отказоустойчивости.
+Это тот проект, где все предыдущие уроки сошлись в одну систему. SaaS-платформа для реальной бухгалтерской компании в Казахстане: реальные клиенты, финансовые транзакции в счетах и строгие требования к отказоустойчивости.
 
 **Что сделано:**
 - Спроектировал и реализовал архитектуру модульного монолита (14 модулей, 36 сущностей БД, 29 контроллеров) и FSD-фронтенда (63 страницы, 179 компонентов) с нуля под бизнес-процессы компании.
@@ -90,13 +90,13 @@ SaaS-платформа для реальной бухгалтерской ко�
 
 **Что понял на этом проекте:**
 
-- Разница между "код работает локально" и "боевой Level 4 релиз с реальными клиентами" — огромная, и это про системную дисциплину: неизменяемые миграции, детерминированные сидеры, zero-N+1, пагинация выборок и откат по кнопке, а не по памяти.
+- Разница между "код работает локально" и "production-ready релизом с реальными клиентами" — огромная, и это про системную дисциплину: неизменяемые миграции, детерминированные сидеры, zero-N+1, пагинация выборок и откат по кнопке, а не по памяти.
 - Security-first — это фундамент архитектуры: защита от IDOR, brute-force, CSRF, MIME spoofing и маскирование PII в аудите закладываются в структуру системы с первого дня, а не патчами перед релизом.
 - Соло-разработка полноценного продукта учит держать в голове систему целиком — от SQL-индексов, транзакций и JVM-памяти до FSD-слоев, мобильной адаптивности и UX бухгалтера, которому нужно сформировать акт за пару кликов.
 
 ### 5. MeDev (DevProfile) — Платформа для разработчиков (Single Source of Truth)
 
-*Статус: Production Live (Level 4: Frontend на Vercel, Backend на Render, PostgreSQL 17, OAuth2, AI Groq Llama 3.3 70B, 6 HTML/PDF тем с поддержкой кириллицы, Job Tracker CRM + Kanban, 100% Test Coverage: 253 backend + 37 frontend тестов, 0 warnings/errors, ADR-001..010)*  
+*Статус: Production Live (Frontend на Vercel, Backend на Render, PostgreSQL 17, OAuth2, AI Groq Llama 3.3 70B, 6 HTML/PDF тем с поддержкой кириллицы, Job Tracker CRM + Kanban, 100% Test Coverage: 253 backend + 37 frontend тестов, ADR-001..010)*  
 *Ссылки:* [Live Frontend (Vercel)](https://me-dev-two.vercel.app) · [Backend API (Render)](https://medev-backend.onrender.com) · [Репозиторий](https://github.com/MrSgemaSeny/MeDev)  
 *Стек: React 19, TypeScript, Tailwind CSS v4, Feature-Sliced Design, Zustand, React Query, Java 17, Spring Boot 3.3.0, PostgreSQL 17, Flyway (V24), Redis 7, OAuth2 (GitHub/Google), Groq AI (SSE Streaming), Thymeleaf + Flying Saucer + PDFBox (PDF), Vitest, Testcontainers, Docker Compose*
 
