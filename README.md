@@ -37,14 +37,14 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Цену connection pool'а — что это не абстракция "из коробки", а конкретный ресурс, который можно исчерпать.
 - Почему ORM-фреймворки вообще появились: пока не написал SQL-маппинг руками, не понимал, от какой боли меня избавляет Hibernate.
 
-### 2. Valeur — Enterprise ATS & HR-платформа умного найма
-*Статус: Commercial Enterprise Release (Milestones M1–M4 Complete, 379/379 тестов 100% Green)* · *Стек: Java 17, Spring Boot 3.3.4, Spring Security 6, Spring Cloud Gateway, PostgreSQL 16, Groq AI (Llama 3.3 70B), React 19, TypeScript, Tailwind CSS v4, FSD, TanStack Query v5*
+### 2. Valeur — платформа умного найма и мэтчинга
+*Статус: Level 2 - Pet Project / MVP (активная разработка и миграция на микросервисы)* · *Стек: Java 17, Spring Boot 3.3.4, Spring Security 6, Spring Cloud Gateway, PostgreSQL 16, Groq AI (Llama 3.3 70B), React 19, TypeScript, Tailwind CSS v4, FSD, TanStack Query v5*
 
-Микросервисная мультитенантная платформа для автоматизации рекрутинга: `api-gateway`, `identity-service` (изоляция по `TenantContext` и `tenant_id`, stateless JWT с ротацией), `vacancy-service`, `application-service`, `ai-service` (глубокий скоринг резюме через Llama 3.3 70B).
+Микросервисная мультитенантная платформа: `api-gateway`, `identity-service` (изоляция по `TenantContext` и `tenant_id`, stateless JWT с ротацией), `vacancy-service`, `application-service`, `ai-service` (скоринг резюме через Llama 3.3 70B).
 
-Фронтенд построен на Feature-Sliced Design — изолированные фичи: интерактивный Kanban-пайплайн со стейт-машиной и контролем SLA этапов, аналитика сквозной воронки найма (Conversion Rate %, Time-to-Hire), база талантов (Talent Pool CRM) с инвайтами кандидатов в 1 клик.
+Фронтенд строится на Feature-Sliced Design: авторизация, профиль, вакансии, интерактивный Kanban-пайплайн откликов и дашборды по ролям. Сервисы контейнеризированы через Docker Compose.
 
-**Ключевой инженерный челлендж:** колоночная мультитенантность, межсервисная аутентификация через `X-Internal-Token`, zero-PII интеграция с LLM и покрытие сквозными E2E-тестами (104 теста) без моков.
+**Ключевой инженерный челлендж:** изоляция данных между компаниями-тенантами (`TenantContext`), межсервисная аутентификация через `X-Internal-Token` и переход от монолитной базы к разделенным схемам микросервисов.
 
 
 ### 3. testCinema — онлайн-кинoплатформа для казахстанского контента
