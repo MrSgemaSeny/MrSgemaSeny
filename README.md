@@ -48,7 +48,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 ## Путь
 
 ### 1. Telegram Bot (Football) — с этого всё началось
-*Статус: завершен* · *Стек: Core Java, Raw JDBC, PostgreSQL*
+*Статус: завершен* · [Репозиторий](https://github.com/MrSgemaSeny/testproject1) · *Стек: Core Java, Raw JDBC, PostgreSQL*
 
 Написал рабочего Telegram-бота на футбольную тематику полностью на чистой Java, без единого фреймворка поверх базы данных. Никакого Hibernate, никакого Spring Data — только JDBC напрямую.
 
@@ -59,7 +59,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Почему ORM-фреймворки вообще появились: пока не написал SQL-маппинг руками, не понимал, от какой боли меня избавляет Hibernate.
 
 ### 2. Valeur — платформа умного найма и мэтчинга
-*Статус: Level 2 - Pet Project / MVP (активная разработка и миграция на микросервисы)* · *Стек: Java 17, Spring Boot 3.3.4, Spring Security 6, Spring Cloud Gateway, PostgreSQL 16, Groq AI (Llama 3.3 70B), React 19, TypeScript, Tailwind CSS v4, FSD, TanStack Query v5*
+*Статус: Level 2 - Pet Project / MVP (активная разработка и миграция на микросервисы)* · [Репозиторий](https://github.com/MrSgemaSeny/Valeur) · *Стек: Java 17, Spring Boot 3.3.4, Spring Security 6, Spring Cloud Gateway, PostgreSQL 16, Groq AI (Llama 3.3 70B), React 19, TypeScript, Tailwind CSS v4, FSD, TanStack Query v5*
 
 Микросервисная мультитенантная платформа: `api-gateway`, `identity-service` (изоляция по `TenantContext` и `tenant_id`, stateless JWT с ротацией), `vacancy-service`, `application-service`, `ai-service` (скоринг резюме через Llama 3.3 70B).
 
@@ -70,7 +70,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 3. testCinema — онлайн-кинoплатформа для казахстанского контента
 
-*Статус: дипломный проект, команда из 2 человек, разработка длилась 10 месяцев* · *Стек: React, TypeScript (frontend), Python (FastAPI) + Spring Boot (backend), Docker, модульный монолит с внешними сервисами*
+*Статус: дипломный проект, команда из 2 человек, разработка длилась 10 месяцев* · [Репозиторий](https://github.com/MrSgemaSeny/test_cinema_front) · *Стек: React, TypeScript (frontend), Python (FastAPI) + Spring Boot (backend), Docker, модульный монолит с внешними сервисами*
 
 Онлайн-киноплатформа с фронтендом, бэкендом и ML-сервисами. Научная задача проекта была связана с развитием казахстанского контента: интеграция рекомендательной системы и отказоустойчивой системы регистрации пользователей.
 
@@ -90,7 +90,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 4. ZhanFinance (JF-1C) — B2B SaaS CRM и бухгалтерская платформа
 
-*Статус: Запущен в эксплуатацию (545 коммитов, закрыты 28 пунктов аудита)*  
+*Статус: Запущен в эксплуатацию (545 коммитов, закрыты 28 пунктов аудита)* · [Репозиторий](https://github.com/MrSgemaSeny/JF-1C)  
 *Стек: Java 17, Spring Boot 3.4+, Spring Security 6, PostgreSQL 17, Flyway (V1–V120), React 19, TypeScript, Feature-Sliced Design, React Query, WebSockets (STOMP), Tailwind CSS v4, Caffeine Cache, Bucket4j, OpenHTMLtoPDF, Thymeleaf*
 
 Это тот проект, где все предыдущие уроки сошлись в одну систему. SaaS-платформа для реальной бухгалтерской компании в Казахстане: реальные клиенты, финансовые транзакции в счетах и строгие требования к отказоустойчивости.
@@ -140,7 +140,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 6. Air Canvas — Computer Vision приложение (рисование жестами)
 
-*Статус: экспериментальный проект* · *Стек: React, HTML5 Canvas, Python (FastAPI), OpenCV, MediaPipe, WebSockets*
+*Статус: экспериментальный проект* · [Репозиторий](https://github.com/MrSgemaSeny/AirCanvas) · *Стек: React, HTML5 Canvas, Python (FastAPI), OpenCV, MediaPipe, WebSockets*
 
 Интерактивное веб-приложение (Natural User Interface), позволяющее рисовать на экране, перемещая палец в воздухе перед камерой. Интеграция браузерных UI-технологий и компьютерного зрения.
 
@@ -160,7 +160,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 7. Envie — мой цифровой дом
 
-*Статус: Level 3 - Personal Production Engine* · *Стек: React 19 + TypeScript + Vite + Tailwind CSS v4 + FSD | Java 17 + Spring Boot 3.4 + PostgreSQL 17*
+*Статус: Level 3 - Personal Production Engine* · [Репозиторий](https://github.com/MrSgemaSeny/Envie) · *Стек: React 19 + TypeScript + Vite + Tailwind CSS v4 + FSD | Java 17 + Spring Boot 3.4 + PostgreSQL 17*
 
 Манифест простой: **"Without cloud. Without authorization. Without excess."** Envie — персональная база знаний, трекер задач и хранилище идей. Инструмент, созданный программистом для программиста. База данных крутится локально через Docker. Никаких экранов логина, JWT, прав доступа — открыл `localhost` и сразу в контексте.
 
@@ -178,7 +178,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 8. Second Brain (Личная База Знаний и Архитектурный Протокол v2.0)
 
-*Статус: активно пополняется (живой репозиторий)* · *Стек: Markdown, Zettelkasten, протокол работы с AI v2.0*
+*Статус: активно пополняется (живой репозиторий)* · [Репозиторий](https://github.com/MrSgemaSeny/Second-Brain) · *Стек: Markdown, Zettelkasten, протокол работы с AI v2.0*
 
 Мой [архитектурный репозиторий](https://github.com/MrSgemaSeny/Second-Brain). Это не просто база знаний, а **исполняемая операционная система разработчика** (`context → Quality Gate → journal → push`), Single Source of Truth для принятия технических решений и арсенал из 24 профессиональных скиллов Antigravity.
 
@@ -202,7 +202,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ### 10. MrDevCourses — Educational LMS & Vibe-Coding Platform
 
-*Статус: Level 3 - Strong Educational MVP (Pilot Pre-Release)* · *Стек: Spring Boot 3.3, React 19, PostgreSQL 17, pgvector, Groq AI (Llama 3.3), Bucket4j, OpenHTMLtoPDF*
+*Статус: Level 3 - Strong Educational MVP (Pilot Pre-Release)* · [Репозиторий](https://github.com/MrSgemaSeny/MrDevCourses) · *Стек: Spring Boot 3.3, React 19, PostgreSQL 17, pgvector, Groq AI (Llama 3.3), Bucket4j, OpenHTMLtoPDF*
 
 Современная учебная LMS-платформа для обучения промышленной backend- и fullstack-разработке, архитектурным паттернам и вайбкодингу.
 
