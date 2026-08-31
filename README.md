@@ -1,4 +1,4 @@
-# Мурат Орынбасар
+﻿# Мурат Орынбасар
 
 **Full-Stack Engineer | Java (Spring Boot) & React (TypeScript)** Алматы / Шымкент, Казахстан · <muratorynbasar0@gmail.com> · [GitHub](https://github.com/MrSgemaSeny)
 
@@ -116,7 +116,19 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Важность глубокой защиты данных (Defense-in-Depth): шифрование на уровне базы данных (AES-256-GCM), пессимистическая синхронизация транзакций и сквозной асинхронный аудит действий администраторов и пользователей делают систему устойчивой к атакам и сбоям в concurrency-сценариях.
 - Цену архитектурной дисциплины: строгие границы модулей на бэкенде и изоляция слоев по FSD на фронтенде позволяют масштабировать проект без роста энтропии и технического долга.
 
-### 6. Air Canvas — Computer Vision приложение (рисование жестами)
+### 6. MrDevCourses — Educational LMS & Vibe-Coding Platform
+
+*Статус: Level 3 - Strong Educational MVP (Pilot Pre-Release)* · *Стек: Spring Boot 3.3, React 19, PostgreSQL 17, pgvector, Groq AI (Llama 3.3), Bucket4j, OpenHTMLtoPDF*
+
+Современная учебная LMS-платформа для обучения промышленной backend- и fullstack-разработке, архитектурным паттернам и вайбкодингу.
+
+**Что сделано:**
+- **Гибридный RAG:** Совмещение Dense Vector (HNSW в `pgvector`) и Sparse FTS через алгоритм Reciprocal Rank Fusion (RRF) в единой базе PostgreSQL.
+- **AI Code Grader & Reviewer:** Статический AST-сканер безопасности (блокировка опасных вызовов вроде `Runtime.exec`) и LLM-оценка по рубрикам.
+- **Drip-Content на уровне СУБД:** Мгновенное вычисление доступности уроков прямо в БД без фоновых планировщиков.
+- **Quiz Anti-Cheat:** Серверная проверка ответов и валидация квизов с маскировкой правильных ответов.
+
+### 7. Air Canvas — Computer Vision приложение (рисование жестами)
 
 *Статус: экспериментальный проект* · *Стек: React, HTML5 Canvas, Python (FastAPI), OpenCV, MediaPipe, WebSockets*
 
@@ -136,9 +148,9 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Цену задержки на каждом узле: архитектура, где кадр передается по сети для обработки, требует агрессивного отбрасывания устаревших пакетов и жесткой оптимизации.
 - Как интегрировать тяжелые вычисления на Python с быстрыми, асинхронными интерфейсами на React через двунаправленные сокеты.
 
-### 7. Envie — мой цифровой дом
+### 8. Envie — мой цифровой дом
 
-*Статус: персональный проект* · *Стек: React 18 + TypeScript + Vite + Tailwind CSS v4 + FSD | Java 17 + Spring Boot 3 + PostgreSQL*
+*Статус: Level 3 - Personal Production Engine* · *Стек: React 19 + TypeScript + Vite + Tailwind CSS v4 + FSD | Java 17 + Spring Boot 3.4 + PostgreSQL 17*
 
 Манифест простой: **"Without cloud. Without authorization. Without excess."** Envie — персональная база знаний, трекер задач и хранилище идей. Инструмент, созданный программистом для программиста. База данных крутится локально через Docker. Никаких экранов логина, JWT, прав доступа — открыл `localhost` и сразу в контексте.
 
@@ -154,7 +166,7 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - Глубокое понимание архитектуры React (FSD) на проекте, где я сам себе и заказчик, и пользователь.
 - Прагматичный бэкенд без лишних абстракций — тоже осознанное архитектурное решение под конкретные задачи.
 
-### 8. Second Brain (Личная База Знаний и Архитектурный Протокол v2.0)
+### 9. Second Brain (Личная База Знаний и Архитектурный Протокол v2.0)
 
 *Статус: активно пополняется (живой репозиторий)* · *Стек: Markdown, Zettelkasten, протокол работы с AI v2.0*
 
@@ -169,11 +181,13 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 - **Архитектурные логи (ADR):** Почему выбран Event-Driven подход, чем Webhooks лучше Long Polling в конкретных кейсах, как проектировать Multi-Tenancy для SaaS.
 - **Технические спецификации:** Исчерпывающая архитектурная документация для каждого проекта.
 
-### 9. Mr Developer — блог, 5-недельный курс вайбкодинга и менторство
+### 10. Mr Developer — блог, 5-недельный курс вайбкодинга и менторство
 
 *Статус: запуск (2026-08)* · *Формат: YouTube + Telegram, персональное наставничество*
 
 Обучение разработке продуктов нового поколения (вайбкодинг): как с нуля, управляя AI-агентами, проектировать дизайн-системы, собирать боевые MVP, соблюдать FSD-архитектуру и деплоить реальные SaaS-сервисы без траты месяцев на ручной бойлерплейт.
+
+> Главный человеческий результат — осознание того, что если у человека есть идея — он хочет и будет её реализовывать, не смотря ни на что. А я — живой результат этого принципа. Это сильнее любой технической презентации. Студент смотрит на меня и думает не "он умный", а "он такой же как я, просто начал раньше и не остановился". Это и есть настоящий авторитет ментора.
 
 
 ---
@@ -204,8 +218,8 @@ Full-stack инженер из Казахстана. Отвечаю за про�
 
 ## Стек технологий
 
-**Backend:** Java 17, Spring Boot 3.3, Spring Security 6, Spring Data JPA, Python (FastAPI, Django), REST API, PostgreSQL, Flyway, Redis, Caffeine Cache, Groq AI (LLM / SSE), AES-256 GCM
-**Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, Zustand, dnd-kit, Server-Sent Events (SSE), WebSockets (STOMP), HTML/CSS, Tailwind CSS v4
+**Backend:** Java 17, Spring Boot 3.3/3.4, Spring Security 6, Spring Cloud Gateway, Spring Data JPA, Python (FastAPI, Django), REST API, PostgreSQL 16/17, pgvector, Flyway, Redis, Caffeine Cache, Bucket4j, Groq AI (LLM / SSE), AES-256 GCM
+**Frontend:** JavaScript, TypeScript, React 19, Feature-Sliced Design (FSD), React Query, Zustand, dnd-kit, Server-Sent Events (SSE), WebSockets (STOMP), HTML5 Canvas, Three.js, Tailwind CSS v4
 **Тестирование & DevOps:** Vitest, Testing Library, JUnit 5, Pytest, Mockito, Testcontainers, Docker, Git, GitHub Actions, Fly.io
 
 ---
